@@ -1,0 +1,20 @@
+<section class="container">
+    <table class="table table-striped table-hover table-bordered text-center">
+        <thead>
+            <th class="col-3">Data</th>
+            <th class="col-3">Valor</th>
+            <th class="col-4">Tipo</th>
+        </thead>
+        <tbody *ngIf="!!lancamentos; else listaVazia">
+            <tr *ngFor="let lancamento of lancamentos">
+                <td class="col-3">{{lancamento.data | date: 'shortDate'}}</td>
+                <td class="col-3">{{lancamento.valorLancamento | currency}}</td>
+                <td class="col-4">{{lancamento.tipoLancamento}}</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+<ng-template #listaVazia>
+    <p>Nenhuma operação cadastrada</p>
+</ng-template>

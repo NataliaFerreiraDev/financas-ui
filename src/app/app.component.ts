@@ -1,3 +1,4 @@
+import { LancamentoService } from './services/lancamento.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,4 +8,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'financas';
+
+  constructor(private service: LancamentoService){
+
+  }
+
+  salvar($event: any){
+    this.service.adicionarLancamento($event);
+
+  }
 }
